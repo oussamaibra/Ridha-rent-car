@@ -205,6 +205,12 @@ function Home() {
       ></path>
     </svg>,
   ];
+
+  const formatter = new Intl.NumberFormat("de-DE", {
+    style: "currency",
+    currency: "TND",
+  });
+
   const count = [
     {
       today: "Today’s Visitors",
@@ -226,9 +232,11 @@ function Home() {
     },
     {
       today: "Total Researchs TND",
-      title: _.sumBy(financing, function (o) {
-        return Number(o?.price.slice(0, 3));
-      }),
+      title: formatter.format(
+        _.sumBy(financing, function (o) {
+          return Number(o?.price.slice(0, 3));
+        })
+      ),
       icon: cart,
       bnb: "bnb2",
     },
