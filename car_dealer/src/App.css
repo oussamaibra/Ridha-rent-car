@@ -1,0 +1,278 @@
+.App {
+  text-align: center;
+}
+
+.home {
+  width: 100%;
+  background-color: #000;
+  background-size: cover;
+  /* background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: contain; */
+  overflow: hidden;
+}
+
+.home-hr {
+  border-color: #282c34;
+}
+
+.cover {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover .title {
+  max-width: 100%;
+}
+
+.cover .title img {
+  height: auto;
+  margin-top: 56px;
+  max-width: 100%;
+}
+
+.home .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  color: #fff;
+
+  /* background-color: rgba(49, 48, 48, 0.1);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25); */
+  backdrop-filter: blur(7px);
+}
+
+.home .card .search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.home .search-form {
+  cursor: pointer;
+  width: 100%;
+
+  background-color: rgba(135, 129, 129, 0.264);
+  font-family: "Roboto", sans-serif;
+  border-radius: 10px;
+
+  font-size: 15px;
+  color: #fff;
+  padding: 50px;
+  padding-right: 30px;
+  outline: none;
+}
+
+.home .search-form .select-home {
+  width: 20%;
+  margin-left: 10px;
+}
+
+.select-inv {
+  margin-bottom: 15px;
+}
+
+.home .search-form .home-advanced-button {
+  width: 10%;
+  margin-left: 10px;
+  border-radius: 5px;
+  background-color: red;
+  color: #000;
+  padding: 2px 8px;
+  border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .cover .title img {
+    height: auto;
+    margin-top: 10px;
+    max-width: 80%;
+  }
+
+  .home .card .search-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+
+  .home .search-form .select-home {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-left: 0px;
+  }
+
+  .home .search-form .home-advanced-button {
+    width: 100%;
+    padding: 10px 10px;
+    border: none;
+    margin-left: 0px;
+  }
+}
+
+.inventory {
+  background-color: #000000eb;
+}
+
+.map {
+  filter: grayscale(100%) invert(92%) contrast(83%);
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.carousel-car {
+  height: 421px;
+  width: 750px;
+  overflow: hidden;
+}
+.carousel-car img {
+  object-fit: cover;
+}
+.carousel .thumb {
+  height: 62.5px;
+}
+
+.carfax-detail-button {
+  height: 25px;
+  width: 120px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* ******************************************* */
+
+.swiper {
+  width: 100%;
+  padding-top: 25px;
+  height: 100%;
+}
+
+.swiper-slide {
+  /* background-position: center;
+  background-size: cover; */
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: rgba(135, 129, 129, 0.264);
+
+  box-shadow: rgba(118, 107, 26, 0.532) 1px 1px 1.5px 1px;
+
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  padding-top: 15px;
+  width: 90%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.swiper-slide .marke_swiper {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: 900;
+  /* color: red; */
+}
+
+.swiper-slide .model_swiper {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: 900;
+  font-size: medium;
+  /* color: red; */
+}
+
+.swiper-slide .km_swiper {
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.swiper-slide .price_swiper {
+  padding-top: 5px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-weight: 900;
+  font-size: larger;
+  color: red;
+}
+
+.titel {
+  color: red;
+}
+
+.home .card .search-form2 {
+  display: flex;
+  justify-content: center;
+}
+
+.iconeMileage {
+  font-weight: 300 !important;
+  padding-right: 10px;
+}
+
+.home .search-form2 {
+  cursor: pointer;
+  width: 100%;
+
+  /* background-color: rgba(135, 129, 129, 0.264); */
+  font-family: "Roboto", sans-serif;
+  border-radius: 10px;
+
+  font-size: 15px;
+  color: #fff;
+  /* padding: 50px; */
+  padding-right: 30px;
+  padding-left: 30px;
+  outline: none;
+}
+
+/* ******************************************* */
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
