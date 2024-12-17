@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import { Menu, Button } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
-import logo from "../../assets/images/logo_2-removebg-preview.png";
+import logo from "../../assets/images/logo_4.png";
 
 function Sidenav({ color }) {
   const { pathname } = useLocation();
