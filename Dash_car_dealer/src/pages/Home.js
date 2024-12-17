@@ -42,6 +42,8 @@ import card from "../assets/images/info-card-1.jpg";
 import axios from "axios";
 import { getJSON } from "../utils";
 import { useNavigate } from "react-router-dom";
+import _ from "lodash";
+import LineChartPrice from "../components/chart/LineChartPrice";
 
 function Home() {
   const { Title, Text } = Typography;
@@ -68,7 +70,6 @@ function Home() {
   const [car, setCar] = useState([]);
   const [statistic, setStatistic] = useState({});
 
-
   const [simulation, setsimulation] = useState(0);
   const [contact, setcontact] = useState(0);
 
@@ -91,17 +92,15 @@ function Home() {
         }
       });
 
-    axios
-      .get("http://127.0.0.1:5000/api/car", config)
-      .then((response) => {
-        if (response.data) {
-          setCar(response.data.car);
-          setisload(false);
-        } else {
-          notification.error({ message: "No Data Found" });
-          setisload(false);
-        }
-      });
+    axios.get("http://127.0.0.1:5000/api/car", config).then((response) => {
+      if (response.data) {
+        setCar(response.data.car);
+        setisload(false);
+      } else {
+        notification.error({ message: "No Data Found" });
+        setisload(false);
+      }
+    });
 
     axios
       .get("http://127.0.0.1:5000/api/statistic/" + "2023-10", config)
@@ -114,15 +113,11 @@ function Home() {
           setisload(false);
         }
       });
-
-
-
   }, [refetech]);
 
   const handrefetech = () => {
     setrefetech(!refetech);
   };
-
 
   const dollor = [
     <svg
@@ -230,8 +225,10 @@ function Home() {
       bnb: "bnb2",
     },
     {
-      today: "Total Researchs",
-      title: statistic.TotalRes,
+      today: "Total Researchs TND",
+      title: _.sumBy(financing, function (o) {
+        return Number(o?.price.slice(0, 3));
+      }),
       icon: cart,
       bnb: "bnb2",
     },
@@ -404,8 +401,13 @@ function Home() {
               <LineChart />
             </Card>
           </Col>
-        </Row>
 
+          <Col xs={24} sm={24} md={12} lg={24} xl={24} className="mb-24">
+            <Card bordered={false} className="criclebox h-full">
+              <LineChartPrice />
+            </Card>
+          </Col>
+        </Row>
       </div>
     </>
   );

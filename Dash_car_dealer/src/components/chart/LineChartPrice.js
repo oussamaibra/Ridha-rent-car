@@ -5,9 +5,9 @@ import lineChart from "./configs/lineChart";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { getJSON } from "../../utils";
-import _ from 'lodash'
+import _ from "lodash";
 
-function LineChart() {
+function LineChartPrice() {
   const [data, setData] = useState([]);
   const [cat, setCat] = useState([]);
 
@@ -24,21 +24,24 @@ function LineChart() {
       .get("http://127.0.0.1:5000/api/financing", config)
       .then((response) => {
         if (response.data.reclamations) {
-          let rander = _.groupBy(response.data.reclamations, 'pickUpDate')
+          let rander = _.groupBy(response.data.reclamations, "pickUpDate");
           let cat = Object.keys(rander);
-          const fin = []
+          const fin = [];
           Object.values(rander).forEach((el, i) => {
-            fin.push(el?.length)
-          })
+            fin.push(
+              _.sumBy(el, function (o) {
+                return Number(o?.price?.slice(0, 4));
+              })
+            );
+          });
+
+          console.log("eeeeeeeeeeeeeeeeeee", Object.values(rander));
           setData(fin);
           setCat(cat);
         } else {
         }
       });
   }, []);
-
-
-
 
   const options = {
     chart: {
@@ -88,7 +91,7 @@ function LineChart() {
             "#e4ca73",
             "#e4ca73",
             "#e4ca73",
-            "#e4ca73"
+            "#e4ca73",
           ],
         },
       },
@@ -142,9 +145,7 @@ function LineChart() {
         },
       },
     ],
-
-  }
-
+  };
 
   const series = [
     {
@@ -160,7 +161,7 @@ function LineChart() {
     <>
       <div className="linechart">
         <div>
-          <Title level={5}>Reservations By Date</Title>
+          <Title level={5}>Reservations By Price</Title>
         </div>
       </div>
 
@@ -168,14 +169,11 @@ function LineChart() {
         options={options}
         series={series}
         type="area"
-        height='100%'
-        width='100%'
+        height="100%"
+        width="100%"
       />
-
-
-    
     </>
   );
 }
 
-export default LineChart;
+export default LineChartPrice;
