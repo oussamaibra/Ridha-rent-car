@@ -1,5 +1,6 @@
 {
   "Home": "Acceuil",
+  "BOOKING":"Réservation",
   "Inventory": "Inventaire",
   "Contact Us": "Contactez-nous",
   "First name": "Prénom",
@@ -9,8 +10,12 @@
   "Send Message": "Envoyer le message",
   "Phone": "Téléphone",
   "Address": "Adresse",
-  "Vehicle details": "Les détails du véhicule",
-  "Driving Innovation, Delivering Satisfaction": "Stimuler l'innovation, assurer la satisfaction",
+  "Vehicle details": "Détails du véhicule",
+  "Driving Innovation, Delivering Satisfaction": "Favoriser l'innovation, garantir la satisfaction",
+  "Vehicle Price":"Prix du véhicule",
+  "VEHICLE DETAILS":"Détails du véhicule",
+  "Rue Bahri Brigui, Bekalta 5090":"Rue Bahri Brigui, Bekalta 5090",
+  "Route de Mahdia":"Route de Mahdia",
   "Make": "Fabriquer",
   "Model": "Modèle",
   "Year": "Année",
@@ -50,5 +55,33 @@
   "Select Mark": "Sélectionnez la Marque",
   "Select model": "Sélectionnez le modèle",
   "thanks we have received ur request": "merci, nous avons reçu votre demande",
-  "Top rated Cars": "Nos Vehicle Vedette!"
+  "Top rated Cars": "Nos Vehicle Vedette!",
+  "Description": "Description",
+  "Get Your Car": "Obtenez votre voiture",
+
+  "1 Day": "1 Jour",
+  "2 Days": "2 Jours",
+  "3 Days": "3 Jours",
+  "4 Days": "4 Jours",
+  "5 Days": "5 Jours",
+  "6 Days": "6 Jours",
+  "7 Days": "7 Jours",
+  "Forfait": "Forfait",
+  "Vehicle Details": "Détails du véhicule",
+
+
+  "Energy": "Énergie",
+
+  "Transmission": "Transmission",
+
+  "Options": "Options",
+  "Heures d'ouverture": "Heures d'ouverture",
+  "Lundi": "Lundi",
+  "Mardi": "Mardi",
+  "Mercredi": "Mercredi",
+  "Jeudi": "Jeudi",
+  "Vendredi": "Vendredi",
+  "Samedi": "Samedi",
+  "Dimanche": "Dimanche",
+  "10:00 AM - 06:00 PM": "10:00 AM - 06:00 PM"
 }

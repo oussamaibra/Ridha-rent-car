@@ -99,7 +99,7 @@ export default function Details() {
             <div id="left-info" className="col-md-4">
               <div className="details">
                 <div className="head-side-bar">
-                  <h4>{t("Vehicle Prise")}</h4>
+                  <h4>{t("Vehicle Price")}</h4>
                 </div>
                 <div className="list-info">
                   <ul>

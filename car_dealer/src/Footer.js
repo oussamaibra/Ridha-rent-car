@@ -22,11 +22,11 @@ const Footer = () => {
                 <ul>
                   <li>
                     <i className="fa fa-map-marker" />
-                    {t("168 Av. Broadway, Montréal-Est, QC H1B 5A3, Canada")}
+                    {t("Rue Bahri Brigui, Bekalta 5090")}
                   </li>
                   <li>
                     <i className="fa fa-phone" />
-                    {t("+1 5146637749 / +1 5142370153")}
+                    {t("+216 94804802 / +216 97768223")}
                   </li>
                   <li>
                     <i className="fa fa-envelope-o" />
@@ -69,37 +69,38 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-md-3">
-              <div className="horaire">
-                <h4> {t("Heures d'ouverture")}</h4>
-                <div className="horaire-item">
-                  <span>Lundi: </span>
-                  <span>10:00 AM - 06:00 PM</span>
-                </div>
-                <div className="horaire-item">
-                  <span> Mardi: </span>
-                  <span>10:00 AM - 06:00 PM</span>
-                </div>
-                <div className="horaire-item">
-                  <span> Mercredi: </span>
-                  <span>10:00 AM - 06:00 PM</span>
-                </div>
-                <div className="horaire-item">
-                  <span> Jeudi: </span>
-                  <span>10:00 AM - 06:00 PM</span>
-                </div>
-                <div className="horaire-item">
-                  <span> Vendredi: </span>
-                  <span>10:00 AM - 06:00 PM</span>
-                </div>
-                <div className="horaire-item">
-                  <span> Samedi: </span>
-                  <span>10:00 AM - 06:00 PM</span>
-                </div>
-                <div className="horaire-item">
-                  <span> Dimanche: </span>
-                  <span>10:00 AM - 06:00 PM</span>
-                </div>
-              </div>
+            <div className="horaire">
+  <h4>{t("Heures d'ouverture")}</h4>
+  <div className="horaire-item">
+    <span>{t("Lundi")}: </span>
+    <span>{t("10:00 AM - 06:00 PM")}</span>
+  </div>
+  <div className="horaire-item">
+    <span>{t("Mardi")}: </span>
+    <span>{t("10:00 AM - 06:00 PM")}</span>
+  </div>
+  <div className="horaire-item">
+    <span>{t("Mercredi")}: </span>
+    <span>{t("10:00 AM - 06:00 PM")}</span>
+  </div>
+  <div className="horaire-item">
+    <span>{t("Jeudi")}: </span>
+    <span>{t("10:00 AM - 06:00 PM")}</span>
+  </div>
+  <div className="horaire-item">
+    <span>{t("Vendredi")}: </span>
+    <span>{t("10:00 AM - 06:00 PM")}</span>
+  </div>
+  <div className="horaire-item">
+    <span>{t("Samedi")}: </span>
+    <span>{t("10:00 AM - 06:00 PM")}</span>
+  </div>
+  <div className="horaire-item">
+    <span>{t("Dimanche")}: </span>
+    <span>{t("10:00 AM - 06:00 PM")}</span>
+  </div>
+</div>
+
             </div>
           </div>
         </div>

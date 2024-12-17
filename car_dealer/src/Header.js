@@ -43,7 +43,7 @@ const Header = (props) => {
                     <Link to="/">{t("Home")}</Link>
                   </li>
                   <li>
-                    <Link to="/booking">{t("Booking")}</Link>
+                    <Link to="/booking">{t("BOOKING")}</Link>
                   </li>
 
                   <li>
@@ -59,6 +59,7 @@ const Header = (props) => {
                         FR
                       </span>
 
+                    </div>
                       <span className="fw-bolder"> | </span>
                       <span
                         className={activeLgn === "en" ? "active" : "lang-item"}
@@ -67,7 +68,14 @@ const Header = (props) => {
                         {" "}
                         EN
                       </span>
-                    </div>
+                      <span className="fw-bolder"> | </span>
+                      <span
+                        className={activeLgn === "de" ? "active" : "lang-item"}
+                        onClick={() => handleLangUpdate("de")}
+                      >
+                        {" "}
+                        DE
+                      </span>
                   </li>
                 </ul>
               </nav>
@@ -79,7 +87,7 @@ const Header = (props) => {
                   <Link to="/">{t("Home")}</Link>
                 </li>
                 <li>
-                  <Link to="/booking">{t("Booking")}</Link>
+                  <Link to="/booking">{t("BOOKING")}</Link>
                 </li>
                 <li>
                   <Link to="/contact">{t("Contact Us")}</Link>
@@ -101,6 +109,14 @@ const Header = (props) => {
                     >
                       {" "}
                       EN
+                    </span>
+                    <span className="fw-bolder"> | </span>
+                    <span
+                      className={activeLgn === "de" ? "active" : "lang-item"}
+                      onClick={() => handleLangUpdate("de")}
+                    >
+                      {" "}
+                      DE
                     </span>
                   </div>
                 </li>

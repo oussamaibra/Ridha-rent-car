@@ -144,19 +144,19 @@ function Contact() {
               <div className="contact-info">
                 <div className="phone">
                   <h4> {t("Phone")}</h4>
-                  <span>{t("+1 5146637749")} </span>
+                  <span>{t("+216 94804802")} </span>
                 </div>
-                  <span>{t("+1 5142370153")}</span>
+                  <span>{t("+216 97768223")}</span>
                 <div className="email">
                   <h4> {t("E-mail")}</h4>
-                  <span>{t("primocarthageauto@gmail.com")}</span>
+                  <span>{t("Ridharentacar@gmail.com")}</span>
                 </div>
                 <div className="address">
                   <h4>{t("Address")}</h4>
                   <span>
-                    {t("168 Av. Broadway, Montréal-Est,")}
+                    {t("Rue Bahri Brigui, Bekalta 5090")}
                     <br />
-                    {t("QC H1B 5A3, Canada")}
+                    {t("Route de Mahdia")}
                   </span>
                 </div>
               </div>

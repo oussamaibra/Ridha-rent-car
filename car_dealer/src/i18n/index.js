@@ -7,10 +7,12 @@ import LanguageDetector from "i18next-browser-languagedetector";
 // ** Languages Imports
 const en = new URL("./en.json", import.meta.url).href;
 const fr = new URL("./fr.json", import.meta.url).href;
+const de = new URL("./de.json", import.meta.url).href;
 
 const languages = {
   en,
   fr,
+  de
 };
 
 i18n

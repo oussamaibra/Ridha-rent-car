@@ -7,6 +7,8 @@ import { last, values } from "lodash";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import moment from "moment/moment";
+import { ToastContainer, Zoom, toast } from "react-toastify";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 function Booking() {
   const { t } = useTranslation();
@@ -100,8 +102,35 @@ function Booking() {
         setdropOfftime("");
         setprice("");
         setmessage("");
-      });
 
+        toast.success(
+          "🚘 Your reservation has been successfully confirmed! We will contact you as soon as possible 🏁",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Zoom,
+            onClose: () => {
+              toast.success("Thank you for choosing us ❤ ", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: false,
+                theme: "dark",
+                transition: Zoom,
+              });
+            },
+          }
+        );
+      });
     // const templateParams = {
     //   name: data.name,
     //   email: data.email,
@@ -126,7 +155,9 @@ function Booking() {
     //     alert("Error Email Send ");
     //   });
   };
-
+  const redirectToBookingPage = () => {
+    Navigate("/");
+  };
   const colourStyles = {
     control: (styles) => ({
       ...styles,
@@ -171,8 +202,25 @@ function Booking() {
   return (
     //contact!primo!carthage
     <>
-      <div className="inventory">
-        <div id="page-heading">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition={Zoom}
+      />
+     
+       
+        {id ? (
+          <>
+           <div className="inventory">
+           <div id="page-heading">
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
@@ -183,7 +231,6 @@ function Booking() {
             </div>
           </div>
         </div>
-        {id && (
           <div className="contact-form">
             <div className="container">
               <div className="row">
@@ -340,7 +387,7 @@ function Booking() {
                         <div className="col-md-6 col-sm-12 col-xs-12">
                           <label>{t("Phone")}</label>
                           <input
-                            type="text"
+                            type="number"
                             className="phone"
                             name="s"
                             onChange={(e) => {
@@ -419,10 +466,29 @@ function Booking() {
               </div>
             </div>
           </div>
+          </div>
+          </>
+        ) : (
+          <div className="no-booking-page">
+            <div className="container1">
+              <div className="message-wrapper">
+                <h1 className="sorry-message">Oops! 😔</h1>
+                <p className="no-booking-text">
+                  You have not booked your car yet! <br /> Please make a
+                  reservation to enjoy our services.
+                </p>
+                <div className="smiley">😞</div>
+                <button
+                  className="book-now-button"
+                  onClick={() => redirectToBookingPage()}
+                >
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
         )}
-
         <Footer />
-      </div>
     </>
   );
 }

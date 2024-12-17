@@ -12,8 +12,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
+import 'swiper/css/navigation';
 
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
 import { isEmpty } from "lodash";
 
@@ -298,28 +299,29 @@ export const Home = () => {
 
           <div className="search-form2">
             <Swiper
-              slidesPerView={1}
+              slidesPerView={3}
               spaceBetween={30}
               breakpoints={{
                 500: {
-                  slidesPerView: 2,
+                  slidesPerView: 1,
                   spaceBetween: 20,
                 },
                 640: {
-                  slidesPerView: 2,
+                  slidesPerView: 1,
                   spaceBetween: 20,
                 },
                 768: {
-                  slidesPerView: 3,
+                  slidesPerView: 1,
                   spaceBetween: 20,
                 },
                 1024: {
-                  slidesPerView: 4,
+                  slidesPerView: 3,
                   spaceBetween: 30,
                 },
               }}
-              pagination={false}
-              modules={[Pagination]}
+              pagination={true}
+              navigation={true}
+              modules={[Pagination,Navigation]}
               className="mySwiper"
             >
               {dataTop?.map((el) => (
@@ -327,14 +329,8 @@ export const Home = () => {
                   <div onClick={() => nav(`/details/${el._id}`)}>
                     <img src={el?.images[0]} alt="" />
                     <div className="marke_swiper"> {el.Make}</div>
-                    <div className="model_swiper">
-                      {" "}
-                      {el.Model} {el.Year}
-                    </div>
-                    <div className="km_swiper">
-                      <i className="icon-road2 iconeMileage" />
-                      {numberWithCommas(el.Mileage)} KM
-                    </div>
+                  
+                   
                     <div className="price_swiper">
                       {" "}
                       {numberWithCommas(el?.prices[0]?.value)} TND / Day
@@ -350,7 +346,7 @@ export const Home = () => {
       <hr className="home-hr" />
 
       <p>
-        Copyrights 2024 <em>Bekalta Rant Cars</em>
+        Copyrights 2024 <em>Bekalta Rent Cars</em>
       </p>
     </div>
   );
