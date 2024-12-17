@@ -47,11 +47,12 @@ function Booking() {
   ]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/api/car/" + id).then((response) => {
-      if (response.data) {
-        setData(response.data.car);
-      }
-    });
+    if (id)
+      axios.get("http://127.0.0.1:5000/api/car/" + id).then((response) => {
+        if (response.data) {
+          setData(response.data.car);
+        }
+      });
   }, []);
 
   const sendEmail = () => {
@@ -166,261 +167,263 @@ function Booking() {
     }),
     input: (styles) => ({ ...styles, color: "#fff", textAlign: "center" }),
   };
-
+  let statusResult = "PASS";
   return (
     //contact!primo!carthage
-
-    <div className="inventory">
-      <div id="page-heading">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 text-center">
-              <h1>{t("Booking")}</h1>
-              <div className="line" />
-              <span> {t("Your dream car is just a visit away!")}</span>
+    <>
+      <div className="inventory">
+        <div id="page-heading">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12 text-center">
+                <h1>{t("Booking")}</h1>
+                <div className="line" />
+                <span> {t("Your dream car is just a visit away!")}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        {id && (
+          <div className="contact-form">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-8">
+                  <div className="contact-form">
+                    <form
+                      id="contact_form"
+                      action="#"
+                      method="POST"
+                      encType="multipart/form-data"
+                    >
+                      <h2> {t("Car rental quote")} </h2>
+                      <div className="row">
+                        <div className="col-md-12 col-sm-12 col-xs-12">
+                          <Select
+                            className="basic-single select-inv"
+                            isClearable={true}
+                            classNamePrefix="select"
+                            placeholder={t("Select pickUp Location")}
+                            name="color"
+                            // maxMenuHeight={"100px"}
+                            options={transmission}
+                            onChange={(e) => {
+                              setpickUpLocation(e?.value);
+                            }}
+                            styles={colourStyles}
+                          />
+                        </div>
 
-      <div className="contact-form">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-8">
-              <div className="contact-form">
-                <form
-                  id="contact_form"
-                  action="#"
-                  method="POST"
-                  encType="multipart/form-data"
-                >
-                  <h2> {t("Car rental quote")} </h2>
-                  <div className="row">
-                    <div className="col-md-12 col-sm-12 col-xs-12">
-                      <Select
-                        className="basic-single select-inv"
-                        isClearable={true}
-                        classNamePrefix="select"
-                        placeholder={t("Select pickUp Location")}
-                        name="color"
-                        // maxMenuHeight={"100px"}
-                        options={transmission}
-                        onChange={(e) => {
-                          setpickUpLocation(e?.value);
-                        }}
-                        styles={colourStyles}
-                      />
-                    </div>
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("Pick-up date")}</label>
+                          <input
+                            type="date"
+                            className="name"
+                            name="s"
+                            onChange={(e) => {
+                              setpickUpDate(e.target.value);
+                            }}
+                            value={pickUpDate}
+                            placeholder={t("Pick-up date")}
+                          />
+                        </div>
 
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("Pick-up date")}</label>
-                      <input
-                        type="date"
-                        className="name"
-                        name="s"
-                        onChange={(e) => {
-                          setpickUpDate(e.target.value);
-                        }}
-                        value={pickUpDate}
-                        placeholder={t("Pick-up date")}
-                      />
-                    </div>
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("Pick-up Time")}</label>
+                          <input
+                            type="time"
+                            className="name"
+                            name="s"
+                            onChange={(e) => {
+                              setpickUpTime(e.target.value);
+                              setdropOfftime(e.target.value);
+                            }}
+                            value={pickUpTime}
+                            placeholder={t("Pick-up Time")}
+                          />
+                        </div>
 
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("Pick-up Time")}</label>
-                      <input
-                        type="time"
-                        className="name"
-                        name="s"
-                        onChange={(e) => {
-                          setpickUpTime(e.target.value);
-                          setdropOfftime(e.target.value);
-                        }}
-                        value={pickUpTime}
-                        placeholder={t("Pick-up Time")}
-                      />
-                    </div>
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("Drop-off date")}</label>
+                          <input
+                            type="date"
+                            className="name"
+                            name="s"
+                            onChange={(e) => {
+                              setdropOffdate(e.target.value);
 
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("Drop-off date")}</label>
-                      <input
-                        type="date"
-                        className="name"
-                        name="s"
-                        onChange={(e) => {
-                          setdropOffdate(e.target.value);
+                              let diff = 1;
 
-                          let diff = 1;
+                              diff = moment(e.target.value).diff(
+                                moment(pickUpDate),
+                                "days"
+                              );
+                              if (diff > 7) {
+                                setnbDays("Forfait");
+                                setprice(`${data.prices[6]?.value} TND`);
+                              } else {
+                                setnbDays(diff);
+                                setprice(`${data.prices[diff - 1]?.value} TND`);
+                              }
+                            }}
+                            value={dropOffdate}
+                            placeholder={t("Drop-off date")}
+                          />
+                        </div>
 
-                          diff = moment(e.target.value).diff(
-                            moment(pickUpDate),
-                            "days"
-                          );
-                          if (diff > 7) {
-                            setnbDays("Forfait");
-                            setprice(`${data.prices[6]?.value} TND`);
-                          } else {
-                            setnbDays(diff);
-                            setprice(`${data.prices[diff - 1]?.value} TND`);
-                          }
-                        }}
-                        value={dropOffdate}
-                        placeholder={t("Drop-off date")}
-                      />
-                    </div>
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("Drop-off Time")}</label>
+                          <input
+                            type="time"
+                            className="name"
+                            name="s"
+                            onChange={(e) => {
+                              setdropOfftime(e.target.value);
+                            }}
+                            value={dropOfftime}
+                            placeholder={t("Drop-off Time")}
+                          />
+                        </div>
 
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("Drop-off Time")}</label>
-                      <input
-                        type="time"
-                        className="name"
-                        name="s"
-                        onChange={(e) => {
-                          setdropOfftime(e.target.value);
-                        }}
-                        value={dropOfftime}
-                        placeholder={t("Drop-off Time")}
-                      />
-                    </div>
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("Number Of Days")}</label>
+                          <input
+                            type="text"
+                            className="name"
+                            disabled
+                            name="s"
+                            value={nbDays}
+                          />
+                        </div>
 
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("Number Of Days")}</label>
-                      <input
-                        type="text"
-                        className="name"
-                        disabled
-                        name="s"
-                        value={nbDays}
-                      />
-                    </div>
-
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("Total price")}</label>
-                      <input
-                        type="text"
-                        className="name"
-                        disabled
-                        name="s"
-                        value={price}
-                      />
-                    </div>
-                  </div>
-
-                  <h2> {t("Details")}</h2>
-                  <div className="row">
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("First name")}</label>
-                      <input
-                        type="text"
-                        className="name"
-                        name="s"
-                        onChange={(e) => {
-                          setname(e.target.value);
-                        }}
-                        value={name}
-                        placeholder={t("First name")}
-                      />
-                    </div>
-
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("Last name")}</label>
-                      <input
-                        type="text"
-                        className="email"
-                        name="s"
-                        onChange={(e) => {
-                          setlastname(e.target.value);
-                        }}
-                        value={lastname}
-                        placeholder={t("Last name")}
-                      />
-                    </div>
-
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("Phone")}</label>
-                      <input
-                        type="text"
-                        className="phone"
-                        name="s"
-                        onChange={(e) => {
-                          setphone(e.target.value);
-                        }}
-                        value={phone}
-                        placeholder={t("Phone")}
-                      />
-                    </div>
-
-                    <div className="col-md-6 col-sm-12 col-xs-12">
-                      <label>{t("Email")}</label>
-                      <input
-                        type="text"
-                        className="phone"
-                        name="s"
-                        onChange={(e) => {
-                          setemail(e.target.value);
-                        }}
-                        value={email}
-                        placeholder={t("Email")}
-                      />
-                    </div>
-
-                    <div className="col-md-12 col-sm-12 col-xs-12">
-                      <label>{t("Write message")}</label>
-                      <textarea
-                        id="message"
-                        className="message"
-                        name="message"
-                        onChange={(e) => {
-                          setmessage(e.target.value);
-                        }}
-                        value={message}
-                        placeholder={t("Write message")}
-                      />
-                    </div>
-                    <div className="col-md-12 col-sm-12 col-xs-12">
-                      <div
-                        className="advanced-button"
-                        onClick={() => {
-                          sendEmail();
-                        }}
-                      >
-                        <a>
-                          {t("Send")}
-                          <i className="fa fa-paper-plane" />
-                        </a>
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("Total price")}</label>
+                          <input
+                            type="text"
+                            className="name"
+                            disabled
+                            name="s"
+                            value={price}
+                          />
+                        </div>
                       </div>
+
+                      <h2> {t("Details")}</h2>
+                      <div className="row">
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("First name")}</label>
+                          <input
+                            type="text"
+                            className="name"
+                            name="s"
+                            onChange={(e) => {
+                              setname(e.target.value);
+                            }}
+                            value={name}
+                            placeholder={t("First name")}
+                          />
+                        </div>
+
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("Last name")}</label>
+                          <input
+                            type="text"
+                            className="email"
+                            name="s"
+                            onChange={(e) => {
+                              setlastname(e.target.value);
+                            }}
+                            value={lastname}
+                            placeholder={t("Last name")}
+                          />
+                        </div>
+
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("Phone")}</label>
+                          <input
+                            type="text"
+                            className="phone"
+                            name="s"
+                            onChange={(e) => {
+                              setphone(e.target.value);
+                            }}
+                            value={phone}
+                            placeholder={t("Phone")}
+                          />
+                        </div>
+
+                        <div className="col-md-6 col-sm-12 col-xs-12">
+                          <label>{t("Email")}</label>
+                          <input
+                            type="text"
+                            className="phone"
+                            name="s"
+                            onChange={(e) => {
+                              setemail(e.target.value);
+                            }}
+                            value={email}
+                            placeholder={t("Email")}
+                          />
+                        </div>
+
+                        <div className="col-md-12 col-sm-12 col-xs-12">
+                          <label>{t("Write message")}</label>
+                          <textarea
+                            id="message"
+                            className="message"
+                            name="message"
+                            onChange={(e) => {
+                              setmessage(e.target.value);
+                            }}
+                            value={message}
+                            placeholder={t("Write message")}
+                          />
+                        </div>
+                        <div className="col-md-12 col-sm-12 col-xs-12">
+                          <div
+                            className="advanced-button"
+                            onClick={() => {
+                              sendEmail();
+                            }}
+                          >
+                            <a>
+                              {t("Send")}
+                              <i className="fa fa-paper-plane" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="contact-info">
+                    <div className="phone">
+                      <h4> {t("Phone")}</h4>
+                      <span>{t("+216 94804802")} </span>
+                    </div>
+                    <span>{t("+216 97768223")}</span>
+                    <div className="email">
+                      <h4> {t("E-mail")}</h4>
+                      <span>{t("Ridharentacar@gmail.com")}</span>
+                    </div>
+                    <div className="address">
+                      <h4>{t("Address")}</h4>
+                      <span>
+                        {t("Rue Bahri Brigui, Bekalta 5090")}
+                        <br />
+                        {t("Route de Mahdia")}
+                      </span>
                     </div>
                   </div>
-                </form>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="contact-info">
-                <div className="phone">
-                  <h4> {t("Phone")}</h4>
-                  <span>{t("+216 94804802")} </span>
-                </div>
-                <span>{t("+216 97768223")}</span>
-                <div className="email">
-                  <h4> {t("E-mail")}</h4>
-                  <span>{t("Ridharentacar@gmail.com")}</span>
-                </div>
-                <div className="address">
-                  <h4>{t("Address")}</h4>
-                  <span>
-                    {t("Rue Bahri Brigui, Bekalta 5090")}
-                    <br />
-                    {t("Route de Mahdia")}
-                  </span>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </>
   );
 }
 
