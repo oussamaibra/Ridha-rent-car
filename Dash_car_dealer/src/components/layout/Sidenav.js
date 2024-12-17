@@ -56,7 +56,7 @@ function Sidenav({ color }) {
     <>
       <div className="brand">
         <img src={logo} alt="" />
-        <span>PrimoCarthage Dashboard</span>
+        <span>Ridha Rent Car Dashboard</span>
       </div>
       <hr />
       <Menu theme="light" mode="inline">
