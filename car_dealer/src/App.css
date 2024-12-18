@@ -264,14 +264,12 @@
   padding-left: 30px;
   outline: none;
 }
-/* Main container for the page */
-/* Main container for the page */
 .no-booking-page {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #1a1a1a; /* Darker black background */
+  background-color: #1a1a1a; 
   font-family: 'Arial', sans-serif;
   color: #fff;
 }
@@ -280,9 +278,9 @@
   text-align: center;
   max-width: 650px;
   padding: 40px;
-  background-color: #222; /* Even darker gray background */
+  background-color: #222; 
   border-radius: 20px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Darker shadow for depth */
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .message-wrapper {
@@ -291,32 +289,29 @@
   align-items: center;
 }
 
-/* Sorry message */
 .sorry-message {
   font-size: 4rem;
-  color: #ff4d4d; /* Red color */
+  color: #ff4d4d; 
   margin-bottom: 20px;
   font-weight: 700;
 }
 
-/* Text message under the "Oops!" */
 .no-booking-text {
   font-size: 1.3rem;
-  color: #ccc; /* Light gray text for contrast */
+  color: #ccc; 
   margin-bottom: 30px;
   font-weight: 400;
 }
 
-/* The emoji with the sad face */
+
 .smiley {
   font-size: 6rem;
-  color: #ff4d4d; /* Red color */
+  color: #ff4d4d; 
   margin-bottom: 30px;
 }
 
-/* Button styling */
 .book-now-button {
-  background-color: #ff4d4d; /* Red background */
+  background-color: #ff4d4d; 
   color: #fff;
   padding: 15px 35px;
   font-size: 1.3rem;
@@ -328,15 +323,14 @@
 }
 
 .book-now-button:hover {
-  background-color: #d43f3f; /* Darker red on hover */
-  transform: scale(1.05); /* Slight scaling effect on hover */
+  background-color: #d43f3f; 
+  transform: scale(1.05); 
 }
 
 .book-now-button:focus {
   outline: none;
 }
 
-/* Animation for the container */
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -350,7 +344,6 @@
   animation: fadeIn 1s ease-in-out;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .message-wrapper {
     padding: 20px;

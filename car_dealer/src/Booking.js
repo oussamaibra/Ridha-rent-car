@@ -8,11 +8,12 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import moment from "moment/moment";
 import { ToastContainer, Zoom, toast } from "react-toastify";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Booking() {
   const { t } = useTranslation();
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [name, setname] = useState(null);
   const [lastname, setlastname] = useState(null);
@@ -156,7 +157,8 @@ function Booking() {
     //   });
   };
   const redirectToBookingPage = () => {
-    Navigate("/");
+
+    navigate("/");
   };
   const colourStyles = {
     control: (styles) => ({
