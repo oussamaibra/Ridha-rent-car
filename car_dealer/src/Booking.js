@@ -479,17 +479,16 @@ function Booking() {
         <div className="no-booking-page">
           <div className="container1">
             <div className="message-wrapper">
-              <h1 className="sorry-message">Oops! 😔</h1>
+              <h1 className="sorry-message">{t("Oops!")} 😔</h1>
               <p className="no-booking-text">
-                You have not booked your car yet! <br /> Please make a
-                reservation to enjoy our services.
+                {t("You have not booked your car yet!")} <br /> {t("Please make a reservation to enjoy our services.")}
               </p>
               <div className="smiley">😞</div>
               <button
                 className="book-now-button"
                 onClick={() => redirectToBookingPage()}
               >
-                Book Now
+                {t("Book Now")}
               </button>
             </div>
           </div>
