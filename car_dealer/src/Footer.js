@@ -26,7 +26,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <i className="fa fa-phone" />
-                    {t("+216 94804802 / +216 97768223")}
+                    {t("+216 94804802 / +216 97768223 / +216 97420830")}
                   </li>
                   <li>
                     <i className="fa fa-envelope-o" />

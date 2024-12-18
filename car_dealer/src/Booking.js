@@ -454,6 +454,8 @@ function Booking() {
                         <span>{t("+216 94804802")} </span>
                       </div>
                       <span>{t("+216 97768223")}</span>
+
+                      <span>{t("+216 97420830")}</span>
                       <div className="email">
                         <h4> {t("E-mail")}</h4>
                         <span>{t("Ridharentacar@gmail.com")}</span>
