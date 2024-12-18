@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import 'swiper/css/navigation';
+import "swiper/css/navigation";
 
 import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
@@ -321,7 +321,7 @@ export const Home = () => {
               }}
               pagination={true}
               navigation={true}
-              modules={[Pagination,Navigation]}
+              modules={[Pagination, Navigation]}
               className="mySwiper"
             >
               {dataTop?.map((el) => (
@@ -329,11 +329,10 @@ export const Home = () => {
                   <div onClick={() => nav(`/details/${el._id}`)}>
                     <img src={el?.images[0]} alt="" />
                     <div className="marke_swiper"> {el.Make}</div>
-                  
-                   
+
                     <div className="price_swiper">
                       {" "}
-                      {numberWithCommas(el?.prices[0]?.value)} TND / Day
+                      {numberWithCommas(el?.prices[0]?.value)} TND / {t("Day")}
                     </div>
                   </div>
                 </SwiperSlide>
