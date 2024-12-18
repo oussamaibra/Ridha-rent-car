@@ -50,7 +50,7 @@ const Header = (props) => {
                     <Link to="/contact">{t("Contact Us")}</Link>
                   </li>
                   <li>
-                    <div className="lang-nav">
+                    <div className="lang-nav-mobil">
                       <span
                         className={activeLgn === "fr" ? "active" : "lang-item"}
                         onClick={() => handleLangUpdate("fr")}
@@ -58,9 +58,8 @@ const Header = (props) => {
                         {" "}
                         FR
                       </span>
-
                     </div>
-                      <span className="fw-bolder"> | </span>
+                    <div className="lang-nav-mobil">
                       <span
                         className={activeLgn === "en" ? "active" : "lang-item"}
                         onClick={() => handleLangUpdate("en")}
@@ -68,7 +67,8 @@ const Header = (props) => {
                         {" "}
                         EN
                       </span>
-                      <span className="fw-bolder"> | </span>
+                    </div>
+                    <div className="lang-nav-mobil">
                       <span
                         className={activeLgn === "de" ? "active" : "lang-item"}
                         onClick={() => handleLangUpdate("de")}
@@ -76,6 +76,7 @@ const Header = (props) => {
                         {" "}
                         DE
                       </span>
+                    </div>
                   </li>
                 </ul>
               </nav>

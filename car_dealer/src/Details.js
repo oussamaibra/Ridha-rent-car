@@ -51,7 +51,7 @@ export default function Details() {
           <div className="row">
             <div id="single-car" className="col-md-8">
               <div className="up-content clearfix">
-                <h2>{data.name}</h2>
+                <h2>{data?.name}</h2>
                 {/* <span>${data.Price}</span> */}
               </div>
 

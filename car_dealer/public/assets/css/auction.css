@@ -39,9 +39,9 @@ html ::selection {
   background: red;
 }
 
-section {
+/* section {
   padding: 70px 0;
-}
+} */
 
 p {
   font-family: "Roboto", sans-serif;
@@ -2090,6 +2090,25 @@ footer .gallery .gallery-item img {
 .lang-nav .active {
   color: red !important;
 }
+
+.lang-nav-mobil {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.lang-nav-mobil span {
+  color: #fff !important;
+}
+
+.lang-nav-mobil span:hover {
+  color: red !important;
+}
+
+.lang-nav-mobil .active {
+  color: red !important;
+}
+
 .listing-grid .featured-item .down-content .car-info ul li {
   text-align: left;
   padding-right: 9px;
