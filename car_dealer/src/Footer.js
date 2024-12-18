@@ -53,9 +53,9 @@ const Footer = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="/financing">
+                    <a href="/booking">
                       <i className="fa fa-caret-right" />
-                      {t("Financing")}
+                      {t("Booking")}
                     </a>
                   </li>
 

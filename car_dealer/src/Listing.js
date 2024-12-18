@@ -192,13 +192,13 @@ export default function Listing() {
     let updatedData = data;
     if (markfilter) {
       updatedData = updatedData?.filter((item) => {
-        const startsWith = item.Make.toLowerCase().trim().startsWith(
-          markfilter?.trim().toLowerCase()
-        );
+        const startsWith = item.Make.toLowerCase()
+          .trim()
+          .startsWith(markfilter?.trim().toLowerCase());
 
-        const includes = item.Make.toLowerCase().trim().includes(
-          markfilter?.trim().toLowerCase()
-        );
+        const includes = item.Make.toLowerCase()
+          .trim()
+          .includes(markfilter?.trim().toLowerCase());
 
         if (startsWith) {
           return startsWith;
@@ -210,13 +210,13 @@ export default function Listing() {
 
     if (modelFilter) {
       updatedData = updatedData?.filter((item) => {
-        const startsWith = item.Model.toLowerCase().trim().startsWith(
-          modelFilter?.trim().toLowerCase()
-        );
+        const startsWith = item.Model.toLowerCase()
+          .trim()
+          .startsWith(modelFilter?.trim().toLowerCase());
 
-        const includes = item.Make.toLowerCase().trim().includes(
-          modelFilter?.trim().toLowerCase()
-        );
+        const includes = item.Make.toLowerCase()
+          .trim()
+          .includes(modelFilter?.trim().toLowerCase());
 
         if (startsWith) {
           return startsWith;
@@ -228,13 +228,13 @@ export default function Listing() {
 
     if (yearFilter) {
       updatedData = updatedData?.filter((item) => {
-        const startsWith = item.Year.trim().toLowerCase().startsWith(
-          yearFilter?.trim().toLowerCase()
-        );
+        const startsWith = item.Year.trim()
+          .toLowerCase()
+          .startsWith(yearFilter?.trim().toLowerCase());
 
-        const includes = item.Make.trim().toLowerCase().includes(
-          yearFilter?.trim().toLowerCase()
-        );
+        const includes = item.Make.trim()
+          .toLowerCase()
+          .includes(yearFilter?.trim().toLowerCase());
 
         if (startsWith) {
           return startsWith;
@@ -246,13 +246,13 @@ export default function Listing() {
 
     if (transmissionFilter) {
       updatedData = updatedData?.filter((item) => {
-        const startsWith = item.Transmission.trim().toLowerCase().startsWith(
-          transmissionFilter?.trim().toLowerCase()
-        );
+        const startsWith = item.Transmission.trim()
+          .toLowerCase()
+          .startsWith(transmissionFilter?.trim().toLowerCase());
 
-        const includes = item.Make?.trim().toLowerCase().includes(
-          transmissionFilter?.trim().toLowerCase()
-        );
+        const includes = item.Make?.trim()
+          .toLowerCase()
+          .includes(transmissionFilter?.trim().toLowerCase());
 
         if (startsWith) {
           return startsWith;
@@ -279,13 +279,13 @@ export default function Listing() {
 
       if (markparam) {
         updatedData = updatedData?.filter((item) => {
-          const startsWith = item.Make?.trim().toLowerCase().startsWith(
-            markparam?.trim().toLowerCase()
-          );
+          const startsWith = item.Make?.trim()
+            .toLowerCase()
+            .startsWith(markparam?.trim().toLowerCase());
 
-          const includes = item.Make?.trim().toLowerCase().includes(
-            markparam?.trim().toLowerCase()
-          );
+          const includes = item.Make?.trim()
+            .toLowerCase()
+            .includes(markparam?.trim().toLowerCase());
 
           if (startsWith) {
             return startsWith;
@@ -297,13 +297,13 @@ export default function Listing() {
 
       if (modelparam) {
         updatedData = updatedData?.filter((item) => {
-          const startsWith = item.Model?.trim().toLowerCase().startsWith(
-            modelparam?.trim().toLowerCase()
-          );
+          const startsWith = item.Model?.trim()
+            .toLowerCase()
+            .startsWith(modelparam?.trim().toLowerCase());
 
-          const includes = item.Make?.trim().toLowerCase().includes(
-            modelparam?.trim().toLowerCase()
-          );
+          const includes = item.Make?.trim()
+            .toLowerCase()
+            .includes(modelparam?.trim().toLowerCase());
 
           if (startsWith) {
             return startsWith;
@@ -315,13 +315,13 @@ export default function Listing() {
 
       if (yearparam) {
         updatedData = updatedData?.filter((item) => {
-          const startsWith = item.Year?.trim().toLowerCase().startsWith(
-            yearparam?.trim().toLowerCase()
-          );
+          const startsWith = item.Year?.trim()
+            .toLowerCase()
+            .startsWith(yearparam?.trim().toLowerCase());
 
-          const includes = item.Make?.trim().toLowerCase().includes(
-            yearparam?.trim().toLowerCase()
-          );
+          const includes = item.Make?.trim()
+            .toLowerCase()
+            .includes(yearparam?.trim().toLowerCase());
 
           if (startsWith) {
             return startsWith;
@@ -557,7 +557,9 @@ export default function Listing() {
                         <Link to={`/details/${el._id}`}>
                           <h2>{el.name}</h2>
                         </Link>
-                        <span>{el.Price} $</span>
+                        <span>
+                          {el?.prices && el?.prices[0]?.value} TND
+                        </span>
                         <div className="light-line" />
                         <p>
                           <div className="card_specs">
