@@ -13,6 +13,7 @@ import Contacts from "./pages/Contacts";
 
 import { getJSON } from "./utils";
 import Cars from "./pages/Cars";
+import Info from "./pages/info";
 
 function App() {
   if (!localStorage.getItem("token") || !getJSON(localStorage.getItem("token")))
@@ -31,6 +32,7 @@ function App() {
               <Route path="/Cars" element={<Cars />} />
 
               <Route path="/contact" element={<Contacts />} />
+              <Route path="/info" element={<Info />} />
 
               <Route path="/dashboard" element={<Home />} />
             </Route>

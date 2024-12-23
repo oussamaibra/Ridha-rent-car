@@ -6,6 +6,8 @@ const reclamationSchema = new mongoose.Schema(
     lastname: { type: String },
     email: { type: String },
     phone: { type: String },
+    CIN: { type: String },
+    passport: { type: String },
     nbDays: { type: String },
     pickUpLocation: { type: String },
     pickUpTime: { type: String },

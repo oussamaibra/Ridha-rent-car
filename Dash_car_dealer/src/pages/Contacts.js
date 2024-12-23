@@ -126,19 +126,24 @@ function Contacts() {
           >
             <Row gutter={[24, 24]}>
               {data.map((i, index) => (
-                <Col span={12} key={index}>
+                <Col span={24} key={index}>
                   <Card className="card-billing-info" bordered="false">
                     <div className="col-info">
-                      <Row justify="start" gutter="50">
-                        <Col md={12}>
+                      <Row justify="start" gutter="20">
+                        <Col md={6}>
                           <img src={i?.car && i?.car?.images[0]} alt="image" />
                         </Col>
 
-                        <Col md={12}>
+                        <Col md={18}>
                           <Descriptions title={"PERSONAL INFORMATION "}>
                             <Descriptions.Item label="Full Name" span={3}>
                               {i.name} {i.Lastname}
                             </Descriptions.Item>
+
+                            <Descriptions.Item label="CIN / Passport" span={3}>
+                              {i.CIN} / {i.passport}
+                            </Descriptions.Item>
+
                             <Descriptions.Item label="Email Address" span={3}>
                               {i.email}
                             </Descriptions.Item>

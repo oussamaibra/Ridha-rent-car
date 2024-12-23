@@ -23,6 +23,9 @@ function Booking() {
 
   const [pickUpLocation, setpickUpLocation] = useState(null);
 
+  const [CIN, setCIN] = useState(null);
+  const [passport, setPassport] = useState(null);
+
   const [pickUpTime, setpickUpTime] = useState(null);
   const [pickUpDate, setpickUpDate] = useState(null);
 
@@ -51,11 +54,13 @@ function Booking() {
 
   useEffect(() => {
     if (id)
-      axios.get("https://www.ridharentcar.online/api/car/" + id).then((response) => {
-        if (response.data) {
-          setData(response.data.car);
-        }
-      });
+      axios
+        .get("https://www.ridharentcar.online/api/car/" + id)
+        .then((response) => {
+          if (response.data) {
+            setData(response.data.car);
+          }
+        });
   }, []);
 
   const sendEmail = () => {
@@ -87,6 +92,8 @@ function Booking() {
         dropOfftime,
         price,
         message,
+        CIN,
+        passport,
         car: data,
       })
       .then((response) => {
@@ -102,6 +109,8 @@ function Booking() {
         setdropOffdate("");
         setdropOfftime("");
         setprice("");
+        setCIN("");
+        setPassport("");
         setmessage("");
 
         toast.success(
@@ -390,6 +399,34 @@ function Booking() {
                           </div>
 
                           <div className="col-md-6 col-sm-12 col-xs-12">
+                            <label>{t("CIN")}</label>
+                            <input
+                              type="text"
+                              className="name"
+                              name="s"
+                              onChange={(e) => {
+                                setCIN(e.target.value);
+                              }}
+                              value={CIN}
+                              placeholder={t("CIN")}
+                            />
+                          </div>
+
+                          <div className="col-md-6 col-sm-12 col-xs-12">
+                            <label>{t("Passport")}</label>
+                            <input
+                              type="text"
+                              className="email"
+                              name="s"
+                              onChange={(e) => {
+                                setPassport(e.target.value);
+                              }}
+                              value={passport}
+                              placeholder={t("Passport")}
+                            />
+                          </div>
+
+                          <div className="col-md-6 col-sm-12 col-xs-12">
                             <label>{t("Phone")}</label>
                             <input
                               type="number"
@@ -481,7 +518,8 @@ function Booking() {
             <div className="message-wrapper">
               <h1 className="sorry-message">{t("Oops!")} 😔</h1>
               <p className="no-booking-text">
-                {t("You have not booked your car yet!")} <br /> {t("Please make a reservation to enjoy our services.")}
+                {t("You have not booked your car yet!")} <br />{" "}
+                {t("Please make a reservation to enjoy our services.")}
               </p>
               <div className="smiley">😞</div>
               <button

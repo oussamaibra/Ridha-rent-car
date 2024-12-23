@@ -1,4 +1,5 @@
 const Reclamation = require("../models/reclamation");
+const Info = require("../models/Info");
 
 exports.find = async (req, res) => {
   res.send({
@@ -20,6 +21,8 @@ exports.create = async (req, res) => {
     lastname,
     email,
     phone,
+    CIN,
+    passport,
     nbDays,
     pickUpLocation,
     pickUpTime,
@@ -47,6 +50,9 @@ exports.create = async (req, res) => {
   newReclamation.dropOffdate = dropOffdate;
   newReclamation.dropOfftime = dropOfftime;
 
+  newReclamation.CIN = CIN;
+  newReclamation.passport = passport;
+
   newReclamation.price = price;
   newReclamation.message = message;
 
@@ -61,6 +67,8 @@ exports.update = async (req, res) => {
     name,
     lastname,
     email,
+    CIN,
+    passport,
     phone,
     nbDays,
     pickUpLocation,
@@ -84,6 +92,8 @@ exports.update = async (req, res) => {
         phone,
         nbDays,
         pickUpLocation,
+        CIN,
+        passport,
         pickUpTime,
         pickUpDate,
         dropOffdate,
@@ -95,6 +105,40 @@ exports.update = async (req, res) => {
     }
   );
   res.status(201).send({ message: "success" });
+};
+
+exports.updateInfo = async (req, res) => {
+  const { carId, vidange, assurance } = req.body;
+
+  let car = await Info.findOne({ carId: carId });
+
+  if (car) {
+    let reclamation = await Info.findOneAndUpdate(
+      { carId: carId },
+      {
+        $set: {
+          carId,
+          vidange,
+          assurance,
+        },
+      }
+    );
+  } else {
+    let reclamation = await Info.create({
+      carId,
+      vidange,
+      assurance,
+    });
+  }
+
+  res.status(201).send({ message: "success" });
+};
+
+exports.getInfo = async (req, res) => {
+  const { carId } = req.params;
+
+  let reclamation = await Info.findOne({ carId: carId });
+  res.status(201).send(reclamation);
 };
 
 exports.delete = async (req, res) => {
