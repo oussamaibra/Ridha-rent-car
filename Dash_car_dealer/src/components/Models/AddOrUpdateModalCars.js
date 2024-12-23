@@ -32,7 +32,7 @@ const AddOrUpdateModalCars = (props) => {
   const [Loading, setLoading] = useState(false);
   const [filelist, setfilelist] = useState([]);
 
-  const serverURL = "http://127.0.0.1:5000";
+  const serverURL = "https://www.ridharentcar.online";
 
   const [form] = useForm();
 
@@ -77,13 +77,13 @@ const AddOrUpdateModalCars = (props) => {
             bodyFormData.append("images", el?.originFileObj);
 
             newImageArray.push(
-              "http://127.0.0.1:5000" + "/images/" + el?.originFileObj?.name
+              "https://www.ridharentcar.online" + "/images/" + el?.originFileObj?.name
             );
 
             listOfPromise.push(
               axios({
                 method: "post",
-                url: "http://127.0.0.1:5000" + "/api/upload",
+                url: "https://www.ridharentcar.online" + "/api/upload",
                 data: bodyFormData,
                 headers: { "Content-Type": "multipart/form-data" },
               })
@@ -118,7 +118,7 @@ const AddOrUpdateModalCars = (props) => {
     if (props.type === "EDIT") {
       await axios
         .put(
-          "http://127.0.0.1:5000/api/car/edit/" + values.id,
+          "https://www.ridharentcar.online/api/car/edit/" + values.id,
           {
             name: values?.name,
             Make: values.Make,
@@ -166,7 +166,7 @@ const AddOrUpdateModalCars = (props) => {
       console.log("from", form.getFieldValue("data"));
       await axios
         .post(
-          "http://127.0.0.1:5000/api/car",
+          "https://www.ridharentcar.online/api/car",
           {
             name: values?.name,
             Make: values.Make,

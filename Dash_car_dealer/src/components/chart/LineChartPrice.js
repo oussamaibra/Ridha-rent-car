@@ -21,7 +21,7 @@ function LineChartPrice() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/api/financing", config)
+      .get("https://www.ridharentcar.online/api/financing", config)
       .then((response) => {
         if (response.data.reclamations) {
           let rander = _.groupBy(response.data.reclamations, "pickUpDate");

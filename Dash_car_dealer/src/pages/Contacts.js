@@ -61,7 +61,7 @@ function Contacts() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/api/financing", config)
+      .get("https://www.ridharentcar.online/api/financing", config)
       .then((response) => {
         if (response.data) {
           console.log("ddddd", response);
@@ -82,7 +82,7 @@ function Contacts() {
     setisload(true);
 
     await axios
-      .delete(`http://127.0.0.1:5000/api/financing/${id}`, config)
+      .delete(`https://www.ridharentcar.online/api/financing/${id}`, config)
       .then(function (response) {
         handrefetech();
         setisload(false);

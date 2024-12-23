@@ -70,7 +70,7 @@ function Cars() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/api/car", config)
+      .get("https://www.ridharentcar.online/api/car", config)
       .then((response) => {
         if (response.data.car) {
           setData(response.data.car);
@@ -89,7 +89,7 @@ function Cars() {
   const handleDelete = async (id) => {
     setisload(true);
     await axios
-      .delete(`http://127.0.0.1:5000/api/car/delete/${id}`, config)
+      .delete(`https://www.ridharentcar.online/api/car/delete/${id}`, config)
       .then(function (response) {
         handrefetech();
         setisload(false);
@@ -103,7 +103,7 @@ function Cars() {
   const handleTop = async (id) => {
     setisload(true);
     await axios
-      .put(`http://127.0.0.1:5000/api/car/top/${id}`, config)
+      .put(`https://www.ridharentcar.online/api/car/top/${id}`, config)
       .then(function (response) {
         handrefetech();
         setisload(false);

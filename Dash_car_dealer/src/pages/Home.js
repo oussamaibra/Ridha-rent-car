@@ -81,7 +81,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://127.0.0.1:5000/api/financing", config)
+      .get("https://www.ridharentcar.online/api/financing", config)
       .then((response) => {
         if (response.data) {
           setFinancing(response.data.reclamations);
@@ -92,7 +92,7 @@ function Home() {
         }
       });
 
-    axios.get("http://127.0.0.1:5000/api/car", config).then((response) => {
+    axios.get("https://www.ridharentcar.online/api/car", config).then((response) => {
       if (response.data) {
         setCar(response.data.car);
         setisload(false);
@@ -103,7 +103,7 @@ function Home() {
     });
 
     axios
-      .get("http://127.0.0.1:5000/api/statistic/" + "2023-10", config)
+      .get("https://www.ridharentcar.online/api/statistic/" + "2023-10", config)
       .then((response) => {
         if (response.data) {
           setStatistic(response.data.statistic);
