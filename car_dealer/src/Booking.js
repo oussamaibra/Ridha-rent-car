@@ -51,7 +51,7 @@ function Booking() {
 
   useEffect(() => {
     if (id)
-      axios.get("http://127.0.0.1:5000/api/car/" + id).then((response) => {
+      axios.get("https://www.ridharentcar.online/api/car/" + id).then((response) => {
         if (response.data) {
           setData(response.data.car);
         }
@@ -74,7 +74,7 @@ function Booking() {
     // };
 
     axios
-      .post("http://127.0.0.1:5000/api/financing", {
+      .post("https://www.ridharentcar.online/api/financing", {
         name,
         lastname,
         email,

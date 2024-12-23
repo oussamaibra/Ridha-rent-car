@@ -16,7 +16,7 @@ export default function Details() {
   const navi = useNavigate();
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/api/car/" + id).then((response) => {
+    axios.get("https://www.ridharentcar.online/api/car/" + id).then((response) => {
       if (response.data) {
         setData(response.data.car);
         setimages(response.data.car?.images ?? []);

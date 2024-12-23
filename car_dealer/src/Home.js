@@ -54,7 +54,7 @@ export const Home = () => {
   ]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/api/car").then((response) => {
+    axios.get("https://www.ridharentcar.online/api/car").then((response) => {
       if (response.data.car) {
         setData(response.data.car);
         setDataTop(response.data.car.filter((el) => el.top));
@@ -224,7 +224,7 @@ export const Home = () => {
 
     axios
       .post(
-        "http://127.0.0.1:5000/api/statistic/res/" +
+        "https://www.ridharentcar.online/api/statistic/res/" +
           String(moment().format("YYYY-MM"))
       )
       .then((response) => {});

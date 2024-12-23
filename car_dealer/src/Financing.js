@@ -28,7 +28,7 @@ function Financing() {
   const handleSubmit = () => {
     console.log("testttt",Title)
     axios
-      .post("http://127.0.0.1:5000/api/financing", {
+      .post("https://www.ridharentcar.online/api/financing", {
         Title,
         Firstname,
         Lastname,
